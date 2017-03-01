@@ -20,22 +20,22 @@ public class Snappable : MonoBehaviour
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (!snapped)
-		{
-			if (collision.gameObject.layer == LayerMask.NameToLayer("SnapTarget"))
-			{
-				var snaps = collision.gameObject.GetComponentsInChildren<Transform>();
+		//if (!snapped)
+		//{
+		//	if (collision.gameObject.layer == LayerMask.NameToLayer("SnapTarget"))
+		//	{
+		//		var snaps = collision.gameObject.GetComponentsInChildren<Transform>();
 
-				if (snaps.Any())
-				{
-					var snapPos = FindClosest(snaps);
-					this.transform.position = snapPos.position + (Vector3.up*this.GetComponent<Collider>().bounds.extents.y*1.1f);
-					this.gameObject.AddComponent<FixedJoint>().connectedBody = snapPos.transform.parent.GetComponent<Rigidbody>();
-					this.snapped = true;
-					this.GetComponent<Rigidbody>().freezeRotation = true;
-				}
-			}
-		}
+		//		if (snaps.Any())
+		//		{
+		//			var snapPos = FindClosest(snaps);
+		//			this.transform.position = snapPos.position + (Vector3.up*this.GetComponent<Collider>().bounds.extents.y*1.1f);
+		//			this.gameObject.AddComponent<FixedJoint>().connectedBody = snapPos.transform.parent.GetComponent<Rigidbody>();
+		//			this.snapped = true;
+		//			this.GetComponent<Rigidbody>().freezeRotation = true;
+		//		}
+		//	}
+		//}
 	}
 
 	private Transform FindClosest(Transform[] positions)
