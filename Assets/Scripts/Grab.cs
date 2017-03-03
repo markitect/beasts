@@ -15,6 +15,7 @@ public class Grab : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (this.highlightedObject != null && Input.GetButton("Fire1"))
 		{
 			this.highlightedObject.transform.parent = this.transform;
